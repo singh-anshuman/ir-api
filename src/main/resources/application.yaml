@@ -1,6 +1,7 @@
 server:
   port: 8081
 
+# Database Config
 spring:
   datasource:
     url: jdbc:h2:file:./data/irdb

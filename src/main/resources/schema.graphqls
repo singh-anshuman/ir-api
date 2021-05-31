@@ -1,0 +1,18 @@
+type Instrument {
+    id: ID
+    name: String
+    isin: String
+    price: Float
+    assetClass: String
+}
+
+# root query for the application
+type Query {
+    instrumentById(id: ID): Instrument
+    instruments: [Instrument]
+}
+
+# root mutation for the application
+type Mutation {
+    addInstrument(name: String!, isin: String!, price: Float!, assetClass: String!): Instrument
+}

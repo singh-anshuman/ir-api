@@ -1,12 +1,14 @@
 package com.anshuman.irapi.instrument.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @Table(name = "INSTRUMENTS")
+@NoArgsConstructor
 public class Instrument {
 
     @Id
