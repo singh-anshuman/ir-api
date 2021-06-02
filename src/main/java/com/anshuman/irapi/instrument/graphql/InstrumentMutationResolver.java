@@ -2,6 +2,7 @@ package com.anshuman.irapi.instrument.graphql;
 
 import com.anshuman.irapi.instrument.model.AssetClass;
 import com.anshuman.irapi.instrument.model.Instrument;
+import com.anshuman.irapi.instrument.model.InstrumentInput;
 import com.anshuman.irapi.instrument.service.InstrumentService;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,21 @@ public class InstrumentMutationResolver implements GraphQLMutationResolver {
     private InstrumentService instrumentService;
 
     public Instrument addInstrument(String name, String isin, Double price, String assetClass) {
-        Instrument instrument = new Instrument();
-        instrument.setName(name);
-        instrument.setIsin(isin);
-        instrument.setPrice(price);
-        instrument.setAssetClass(AssetClass.valueOf(assetClass));
+        Instrument instrument = Instrument.builder()
+                                    .name(name)
+                                    .isin(isin)
+                                    .price(price)
+                                    .assetClass(AssetClass.valueOf(assetClass))
+                                    .build();
 
         return instrumentService.saveInstrument(instrument);
+    }
+
+    public Instrument addInstrumentViaInput(InstrumentInput instrumentInput) {
+        return addInstrument(instrumentInput.getName()
+                ,instrumentInput.getIsin()
+                ,instrumentInput.getPrice()
+                ,instrumentInput.getAssetClass());
     }
 
 }

@@ -15,4 +15,12 @@ type Query {
 # root mutation for the application
 type Mutation {
     addInstrument(name: String!, isin: String!, price: Float!, assetClass: String!): Instrument
+    addInstrumentViaInput(instr: InstrumentInput):Instrument
+}
+
+input InstrumentInput {
+    name: String
+    isin: String
+    price: Float
+    assetClass: String
 }
