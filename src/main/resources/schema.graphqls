@@ -6,10 +6,21 @@ type Instrument {
     assetClass: String
 }
 
+type Account {
+    id: ID
+    accountNumber: String
+    firstName: String
+    lastName: String
+    quantity: Int
+    instrument: Instrument
+}
+
 # root query for the application
 type Query {
     instrumentById(id: ID): Instrument
     instruments: [Instrument]
+    accounts: [Account]
+    accountById(id: ID): Account
 }
 
 # root mutation for the application
