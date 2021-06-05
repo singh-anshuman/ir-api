@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AccountService {
@@ -17,8 +18,13 @@ public class AccountService {
         return accountRepository.findAll();
     }
 
+    public Optional<Account> getAccountById(Long id) {
+        return accountRepository.findById(id);
+    }
+
     public Account saveAccount(Account account) {
-        return accountRepository.save(account);
+        Account dbAccount = accountRepository.save(account);
+        return dbAccount;
     }
 
 }
