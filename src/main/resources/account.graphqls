@@ -1,0 +1,13 @@
+type Account {
+    id: ID
+    accountNumber: String
+    firstName: String
+    lastName: String
+    quantity: Int
+    instrument: Instrument
+}
+
+extend type Query {
+    accounts: [Account]
+    accountById(id: ID): Account
+}

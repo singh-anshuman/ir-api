@@ -1,37 +1,9 @@
-type Instrument {
-    id: ID
-    name: String
-    isin: String
-    price: Float
-    assetClass: String
-}
-
-type Account {
-    id: ID
-    accountNumber: String
-    firstName: String
-    lastName: String
-    quantity: Int
-    instrument: Instrument
-}
-
 # root query for the application
 type Query {
-    instrumentById(id: ID): Instrument
-    instruments: [Instrument]
-    accounts: [Account]
-    accountById(id: ID): Account
+
 }
 
 # root mutation for the application
 type Mutation {
-    addInstrument(name: String!, isin: String!, price: Float!, assetClass: String!): Instrument
-    addInstrumentViaInput(instr: InstrumentInput):Instrument
-}
-
-input InstrumentInput {
-    name: String
-    isin: String
-    price: Float
-    assetClass: String
+#    addAccount(accountName: String!,firstName: String!,lastName: String!,quantity: Int!,instrument: InstrumentInput {name:String})
 }
