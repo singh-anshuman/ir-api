@@ -19,7 +19,8 @@ public class AccountQueryResolver implements GraphQLQueryResolver {
     }
 
     public Account getAccountById(Long id) {
-        return accountService.getAccountById(id).get();
+        Account account = accountService.getAccountById(id).get();
+        return account;
     }
 
 }

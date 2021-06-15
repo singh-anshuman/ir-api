@@ -25,7 +25,7 @@ public class Account {
     private String lastName;
     private Long quantity;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "INSTRUMENT_ID",referencedColumnName = "ID")
     private Instrument instrument;
 
